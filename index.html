@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Цилиндровый Взлом (Крупный текст)</title>
+    <title>Цилиндровый Взлом (Аркадный режим)</title>
     <style>
         :root {
             --bg-dark: #0a0e12;
@@ -60,10 +60,9 @@
             }
         }
 
-        /* УВЕЛИЧЕННЫЕ ШРИФТЫ ДЛЯ ЧИТАЕМОСТИ */
         h1 {
             color: var(--accent-gold);
-            font-size: 26px; /* Было 19px */
+            font-size: 26px;
             margin: 0 0 5px 0;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -72,7 +71,7 @@
         }
 
         .subtitle {
-            font-size: 15px; /* Было 11px */
+            font-size: 15px;
             color: #6c7a89;
             margin: 0 0 15px 0;
             text-align: center;
@@ -98,7 +97,7 @@
         }
 
         .setup-label {
-            font-size: 16px; /* Было 12px */
+            font-size: 16px;
             color: #8a9ba8;
             display: block;
             margin-bottom: 8px;
@@ -113,7 +112,7 @@
             border-radius: 8px;
             padding: 12px;
             color: var(--accent-gold);
-            font-size: 22px; /* Было 15px */
+            font-size: 22px;
             font-weight: bold;
             outline: none;
             text-align: center;
@@ -134,7 +133,7 @@
             color: var(--text-light);
             border: 1px solid var(--border-color);
             padding: 20px;
-            font-size: 18px; /* Было 14px */
+            font-size: 18px;
             font-weight: 700;
             cursor: pointer;
             border-radius: 12px;
@@ -165,7 +164,7 @@
             border: 1px solid var(--border-color);
             padding: 12px 16px;
             border-radius: 10px;
-            font-size: 17px; /* Было 12px */
+            font-size: 17px;
             font-weight: 700;
             margin-bottom: 15px;
         }
@@ -287,8 +286,8 @@
             background: #1b2430;
             border: 1px solid var(--border-color);
             color: var(--text-light);
-            padding: 20px; /* Кнопки стали больше */
-            font-size: 20px; /* Шрифты на кнопках крупнее */
+            padding: 20px;
+            font-size: 20px;
             font-weight: bold;
             border-radius: 12px;
             cursor: pointer;
@@ -298,7 +297,6 @@
             background: #253344;
         }
 
-        /* ПОЛНОЭКРАННЫЕ ПЛАШКИ ПРЕДУПРЕЖДЕНИЙ */
         .result-overlay {
             position: absolute;
             top: 0;
@@ -315,7 +313,7 @@
         }
 
         .result-title {
-            font-size: 32px; /* Увеличено для максимальной заметности */
+            font-size: 32px;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -395,7 +393,7 @@
     let selectedIdx = 0;
     let durability = 5;
     let gameEnded = false;
-    let overlayActive = false; // Флаг, чтобы блокировать действия во время показа плашки
+    let overlayActive = false;
 
     let touchStartX = 0;
     let touchStartY = 0;
@@ -544,9 +542,9 @@
             updateUI();
             
             if (durability <= 0) {
-                showMessage("Сундук заклинило", "Все отмычки сломаны.", false, true);
+                showMessage("ИГРА ОКОНЧЕНА!", "Все отмычки сломаны.", false, true);
             } else {
-                showMessage("Отмычка сломалась", `Осталось отмычек: ${durability}`, false, false);
+                showMessage("ОТМЫЧКА СЛОМАЛАСЬ!", `Осталось отмычек: ${durability}`, false, false);
             }
         } else {
             positions = tempPositions;
@@ -554,7 +552,6 @@
         }
     }
 
-    // Универсальная функция для вывода плашек на экран
     function showMessage(titleText, subText, isWin, finalLose = false) {
         overlayActive = true;
         const overlay = document.getElementById('result-overlay');
@@ -582,10 +579,9 @@
                 document.getElementById('game-screen').classList.remove('active');
                 document.getElementById('menu-screen').classList.add('active');
             }
-        }, 1200); // Плашка показывается чуть больше секунды
+        }, 1200);
     }
 
-    // Свайпы для движения активной пластины влево/вправо
     document.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
@@ -601,7 +597,6 @@
         }
     }, {passive: true});
 
-    // Клавиатура
     window.addEventListener('keydown', e => {
         if (!document.getElementById('game-screen').classList.contains('active') || gameEnded || overlayActive) return;
         if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveSelected(-1);
