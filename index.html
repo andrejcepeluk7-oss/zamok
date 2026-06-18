@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Цилиндровый Взлом (Ультра-хардкор)</title>
+    <title>Цилиндровый Взлом (Крупный текст)</title>
     <style>
         :root {
             --bg-dark: #0a0e12;
@@ -29,7 +29,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             user-select: none;
             overflow: hidden;
@@ -48,36 +48,40 @@
             position: relative;
             box-shadow: 0 15px 50px rgba(0,0,0,0.8);
             border: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 20px 20px 5px 20px;
+            justify-content: flex-start;
         }
 
         @media (min-width: 450px) {
             .phone-wrapper {
                 height: 85vh;
                 border-radius: 24px;
+                margin-top: 20px;
             }
         }
 
+        /* УВЕЛИЧЕННЫЕ ШРИФТЫ ДЛЯ ЧИТАЕМОСТИ */
         h1 {
             color: var(--accent-gold);
-            font-size: 20px;
+            font-size: 26px; /* Было 19px */
             margin: 0 0 5px 0;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 800;
+            text-align: center;
         }
 
         .subtitle {
-            font-size: 12px;
+            font-size: 15px; /* Было 11px */
             color: #6c7a89;
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
+            text-align: center;
         }
 
         .screen {
             display: none;
             flex-direction: column;
-            height: 100%;
-            justify-content: center;
+            height: auto;
         }
 
         .screen.active {
@@ -87,18 +91,19 @@
         .setup-section {
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
+            border-radius: 12px;
             padding: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
         .setup-label {
-            font-size: 13px;
+            font-size: 16px; /* Было 12px */
             color: #8a9ba8;
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            text-align: center;
         }
 
         .picks-input {
@@ -108,7 +113,7 @@
             border-radius: 8px;
             padding: 12px;
             color: var(--accent-gold);
-            font-size: 16px;
+            font-size: 22px; /* Было 15px */
             font-weight: bold;
             outline: none;
             text-align: center;
@@ -128,11 +133,11 @@
             background: linear-gradient(135deg, #1b2430, #161d27);
             color: var(--text-light);
             border: 1px solid var(--border-color);
-            padding: 18px;
-            font-size: 15px;
-            font-weight: 600;
+            padding: 20px;
+            font-size: 18px; /* Было 14px */
+            font-weight: 700;
             cursor: pointer;
-            border-radius: 14px;
+            border-radius: 12px;
             transition: all 0.2s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             text-align: left;
@@ -159,9 +164,10 @@
             background: var(--glass-bg);
             border: 1px solid var(--border-color);
             padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 17px; /* Было 12px */
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
         .hud-item span {
@@ -171,16 +177,13 @@
         .lock-housing {
             background: #090c0f;
             border: 2px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 15px 10px;
-            margin: 15px 0;
+            margin: 0 0 15px 0;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 8px;
             box-shadow: inset 0 10px 30px rgba(0,0,0,0.8);
-            flex-grow: 1;
-            align-content: center;
-            max-height: 340px;
         }
 
         .lock-housing.grid-6 { grid-template-columns: repeat(3, 1fr); }
@@ -191,7 +194,7 @@
             flex-direction: column;
             align-items: center;
             background: rgba(255,255,255,0.01);
-            padding: 8px 0;
+            padding: 6px 0;
             border-radius: 8px;
             border: 1px solid transparent;
             cursor: pointer;
@@ -203,12 +206,12 @@
         }
 
         .pin-socket {
-            height: 45px;
+            height: 40px;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             position: relative;
         }
 
@@ -224,11 +227,11 @@
 
         .lock-pin {
             width: 8px;
-            height: 30px;
+            height: 26px;
             background: #4a5768;
             border-radius: 3px 3px 0 0;
             transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s;
-            transform: translateY(30px);
+            transform: translateY(26px);
         }
 
         .lock-pin.popped {
@@ -238,8 +241,8 @@
         }
 
         .slider-track {
-            width: 44px;
-            height: 14px;
+            width: 42px;
+            height: 12px;
             background: #05070a;
             border-radius: 20px;
             position: relative;
@@ -247,8 +250,8 @@
         }
 
         .plate-slider {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #8a9ba8;
             border-radius: 50%;
             position: absolute;
@@ -266,23 +269,11 @@
             box-shadow: 0 0 10px var(--error-red) !important;
         }
 
-        .msg-box {
-            height: 40px;
-            font-weight: 600;
-            font-size: 13px;
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8a9ba8;
-            text-align: center;
-        }
-
         .mobile-controls {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: auto;
+            margin-top: 0;
         }
 
         .control-row {
@@ -296,8 +287,8 @@
             background: #1b2430;
             border: 1px solid var(--border-color);
             color: var(--text-light);
-            padding: 16px;
-            font-size: 16px;
+            padding: 20px; /* Кнопки стали больше */
+            font-size: 20px; /* Шрифты на кнопках крупнее */
             font-weight: bold;
             border-radius: 12px;
             cursor: pointer;
@@ -307,43 +298,39 @@
             background: #253344;
         }
 
-        .nav-btn {
-            background: #11171f;
-            color: #8a9ba8;
-            font-size: 13px;
-            padding: 12px;
-        }
-
+        /* ПОЛНОЭКРАННЫЕ ПЛАШКИ ПРЕДУПРЕЖДЕНИЙ */
         .result-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 14, 18, 0.95);
+            background: rgba(10, 14, 18, 0.96);
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 10;
-            animation: fadeIn 0.2s ease forwards;
+            animation: fadeIn 0.15s ease forwards;
         }
 
         .result-title {
-            font-size: 28px;
+            font-size: 32px; /* Увеличено для максимальной заметности */
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-align: center;
+            padding: 0 10px;
         }
 
-        .result-title.win { color: var(--pin-up); text-shadow: 0 0 20px rgba(56, 176, 0, 0.4); }
-        .result-title.lose { color: var(--error-red); text-shadow: 0 0 20px rgba(217, 4, 41, 0.4); }
+        .result-title.win { color: var(--pin-up); text-shadow: 0 0 20px rgba(56, 176, 0, 0.5); }
+        .result-title.lose { color: var(--error-red); text-shadow: 0 0 20px rgba(217, 4, 41, 0.5); }
 
         .result-sub {
-            font-size: 14px;
-            color: #6c7a89;
+            font-size: 16px;
+            color: #8a9ba8;
+            text-align: center;
         }
 
         @keyframes fadeIn {
@@ -356,28 +343,28 @@
 <div class="phone-wrapper">
     <div id="result-overlay" class="result-overlay">
         <div id="res-title" class="result-title">Заголовок</div>
-        <div class="result-sub">Возврат на главный экран...</div>
+        <div id="res-sub" class="result-sub">Подзаголовок</div>
     </div>
 
     <div id="menu-screen" class="screen active">
         <h1>Цилиндровый взлом</h1>
-        <p class="subtitle">Сбалансированные каскады связей. Без мертвых петель.</p>
+        <p class="subtitle">Выбор пластин тапом. Сдвиг — кнопками или свайпом.</p>
         
         <div class="setup-section">
-            <label class="setup-label" for="custom-picks">Задать количество отмычек:</label>
+            <label class="setup-label" for="custom-picks">Количество отмычек:</label>
             <input type="number" id="custom-picks" class="picks-input" value="5" min="1" max="999" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
         </div>
 
         <div class="menu-grid">
             <button class="menu-btn" onclick="startPuzzle('medium')">4 Слайдера (Нормал)</button>
             <button class="menu-btn" onclick="startPuzzle('hard')">6 Слайдеров (Сложный)</button>
-            <button class="menu-btn" onclick="startPuzzle('expert')">8 Слайдеров (Мастер: Макс. Связи)</button>
+            <button class="menu-btn" onclick="startPuzzle('expert')">8 Слайдеров (Мастер)</button>
         </div>
     </div>
 
     <div id="game-screen" class="screen">
         <h1 id="puzzle-title">Замок</h1>
-        <p class="subtitle" style="margin-bottom: 10px;">Сдвигайте пластины к центру (позиция 4)</p>
+        <p class="subtitle">Сдвигайте пластины к центру (позиция 4)</p>
         
         <div class="hud-bar">
             <div class="hud-item">Канал: <span id="hud-active">1</span></div>
@@ -386,16 +373,10 @@
 
         <div class="lock-housing" id="lock-cylinder"></div>
 
-        <div class="msg-box" id="feedback">Просчитывайте направленные цепочки ходов.</div>
-
         <div class="mobile-controls">
             <div class="control-row">
                 <button class="pad-btn" onclick="moveSelected(-1)">◀ Сдвиг</button>
                 <button class="pad-btn" onclick="moveSelected(1)">Сдвиг ▶</button>
-            </div>
-            <div class="control-row">
-                <button class="pad-btn nav-btn" onclick="switchChannel(-1)">▲ Выбрать левее</button>
-                <button class="pad-btn nav-btn" onclick="switchChannel(1)">Выбрать правее ▼</button>
             </div>
         </div>
     </div>
@@ -405,7 +386,7 @@
     const configs = {
         medium: { size: 4, name: "Шифр-Замок (4 Слайдера)", chance: 0.5 },
         hard: { size: 6, name: "Супер-Блок (6 Слайдеров)", chance: 0.65 },
-        expert: { size: 8, name: "Двухрядный Сейф (8 Слайдеров)", chance: 0.85 } // 85% плотность связей для хардкора
+        expert: { size: 8, name: "Двухрядный Сейф (8 Слайдеров)", chance: 0.85 }
     };
 
     let activeConfig = null;
@@ -414,6 +395,7 @@
     let selectedIdx = 0;
     let durability = 5;
     let gameEnded = false;
+    let overlayActive = false; // Флаг, чтобы блокировать действия во время показа плашки
 
     let touchStartX = 0;
     let touchStartY = 0;
@@ -424,6 +406,7 @@
         links = [];
         selectedIdx = 0;
         gameEnded = false;
+        overlayActive = false;
 
         let inputElement = document.getElementById('custom-picks');
         let inputVal = parseInt(inputElement.value);
@@ -438,7 +421,6 @@
             positions.push(validStarts[Math.floor(Math.random() * validStarts.length)]);
         }
 
-        // Генерация направленного ациклического графа (DAG)
         let order = [];
         for (let i = 0; i < activeConfig.size; i++) order.push(i);
         for (let i = order.length - 1; i > 0; i--) {
@@ -482,7 +464,7 @@
             const channel = document.createElement('div');
             channel.className = 'lock-channel';
             channel.id = `channel-${i}`;
-            channel.onclick = () => { if(!gameEnded) { selectedIdx = i; updateUI(); } };
+            channel.onclick = () => { if(!gameEnded && !overlayActive) { selectedIdx = i; updateUI(); } };
 
             const socket = document.createElement('div');
             socket.className = 'pin-socket';
@@ -536,13 +518,13 @@
             }
         }
 
-        if (winStatus && !gameEnded) {
-            endGame(true);
+        if (winStatus && !gameEnded && !overlayActive) {
+            showMessage("СУНДУК ОТКРЫТ!", "Вы успешно взломали механизм!", true);
         }
     }
 
     function moveSelected(direction) {
-        if (gameEnded) return;
+        if (gameEnded || overlayActive) return;
 
         let hitWall = false;
         let tempPositions = [...positions];
@@ -559,13 +541,12 @@
 
         if (hitWall) {
             durability--;
+            updateUI();
+            
             if (durability <= 0) {
-                updateUI();
-                endGame(false);
+                showMessage("Сундук заклинило", "Все отмычки сломаны.", false, true);
             } else {
-                const fb = document.getElementById('feedback');
-                fb.innerText = "💥 ТУПИК! Цепочка уперлась. Просчитывайте баланс каскада.";
-                updateUI();
+                showMessage("Отмычка сломалась", `Осталось отмычек: ${durability}`, false, false);
             }
         } else {
             positions = tempPositions;
@@ -573,61 +554,58 @@
         }
     }
 
-    function switchChannel(dir) {
-        if (gameEnded) return;
-        selectedIdx = (selectedIdx + dir + activeConfig.size) % activeConfig.size;
-        updateUI();
-    }
-
-    function endGame(isWin) {
-        gameEnded = true;
+    // Универсальная функция для вывода плашек на экран
+    function showMessage(titleText, subText, isWin, finalLose = false) {
+        overlayActive = true;
         const overlay = document.getElementById('result-overlay');
         const title = document.getElementById('res-title');
+        const sub = document.getElementById('res-sub');
         
-        overlay.style.display = 'flex';
-
+        title.innerText = titleText;
+        sub.innerText = finalLose || isWin ? "Возврат в меню..." : subText;
+        
         if (isWin) {
-            title.innerText = "СУНДУК ОТКРЫТ!";
             title.className = "result-title win";
+            gameEnded = true;
         } else {
-            title.innerText = "ОТМЫЧКА СЛОМАЛАСЬ!";
             title.className = "result-title lose";
+            if (finalLose) gameEnded = true;
         }
+
+        overlay.style.display = 'flex';
 
         setTimeout(() => {
             overlay.style.display = 'none';
-            document.getElementById('game-screen').classList.remove('active');
-            document.getElementById('menu-screen').classList.add('active');
-        }, 2000);
+            overlayActive = false;
+            
+            if (gameEnded) {
+                document.getElementById('game-screen').classList.remove('active');
+                document.getElementById('menu-screen').classList.add('active');
+            }
+        }, 1200); // Плашка показывается чуть больше секунды
     }
 
-    // Свайпы
+    // Свайпы для движения активной пластины влево/вправо
     document.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
     }, {passive: true});
 
     document.addEventListener('touchend', e => {
-        if (gameEnded) return;
+        if (gameEnded || overlayActive) return;
         let diffX = e.changedTouches[0].screenX - touchStartX;
         let diffY = e.changedTouches[0].screenY - touchStartY;
 
-        if (Math.abs(diffX) > 40 || Math.abs(diffY) > 40) {
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (diffX > 0) moveSelected(1); else moveSelected(-1);
-            } else {
-                if (diffY > 0) switchChannel(1); else switchChannel(-1);
-            }
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) moveSelected(1); else moveSelected(-1);
         }
     }, {passive: true});
 
     // Клавиатура
     window.addEventListener('keydown', e => {
-        if (!document.getElementById('game-screen').classList.contains('active') || gameEnded) return;
+        if (!document.getElementById('game-screen').classList.contains('active') || gameEnded || overlayActive) return;
         if (e.code === 'KeyA' || e.code === 'ArrowLeft') moveSelected(-1);
         if (e.code === 'KeyD' || e.code === 'ArrowRight') moveSelected(1);
-        if (e.code === 'KeyW' || e.code === 'ArrowUp') switchChannel(-1);
-        if (e.code === 'KeyS' || e.code === 'ArrowDown') switchChannel(1);
     });
 </script>
 </body>
